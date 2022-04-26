@@ -1,0 +1,5 @@
+server:
+  port: 9903
+spring:
+  application:
+    name: web-demo01
