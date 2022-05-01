@@ -1,6 +1,7 @@
 package com.wwg.webdemo01.controller;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserInfoController {
+
+    @Value("${server.port}")
+    private  Integer port ;
 
     @GetMapping("/say")
     public String say(String message){
@@ -23,5 +27,12 @@ public class UserInfoController {
         }*/
 
         return "hello==="+message;
+    }
+
+    @GetMapping("/hello")
+    public String hello(String message){
+
+
+        return "hello==="+message + " port==="+ port;
     }
 }
