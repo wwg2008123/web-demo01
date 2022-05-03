@@ -21,7 +21,7 @@ pipeline {
     post {
       always {
         emailext {
-            body: '${FILE,path="email.html"}',
+            body: '${FILE,path="$WORKSPACE/email.html"}',
             subject: '构建通知: $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
             to: 'wwg2008123@163.com'
         }
